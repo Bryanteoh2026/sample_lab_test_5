@@ -123,7 +123,7 @@ def calc_avg_pay_by_department(employees):
 
     avg_by_dept = {}
     for dept in total:
-        avg_by_dept[dept] = total[dept] / count[dept]
+        avg_by_dept[dept] = round(total[dept] / count[dept], 2)
 
     return avg_by_dept
 
