@@ -50,7 +50,15 @@ def display_all_records(employees):
 # -------------------------------------------------------
 def get_employees_by_department(employees, department):
     # TODO: Implement this function
-    pass
+    if not employees:
+        return []
+    employee_by_department = []
+    for employee in employees:
+        if employee["department"].lower() == department.lower():
+            employee_by_department.append(employee)
+
+    return employee_by_department
+
 
 
 # -------------------------------------------------------
@@ -59,7 +67,18 @@ def get_employees_by_department(employees, department):
 # -------------------------------------------------------
 def get_highest_paid_employee(employees):
     # TODO: Implement this function
-    pass
+    if not employees:
+        return None
+    highest_emp = None
+    highest_paid = -1
+    for employee in employees:
+        salary = calc_gross_pay(employee)
+        if salary > highest_paid:
+            highest_paid = salary
+            highest_emp = employee
+
+    return highest_emp
+
 
 
 # -------------------------------------------------------
@@ -68,8 +87,14 @@ def get_highest_paid_employee(employees):
 # -------------------------------------------------------
 def calc_total_payroll(employees):
     # TODO: Implement this function
-    pass
+    if not employees:
+        return 0
+    total_payroll = 0
+    for employee in employees:
+        salary = calc_gross_pay(employee)
+        total_payroll += salary
 
+    return total_payroll
 
 # -------------------------------------------------------
 # REQ-04: Return a dict with the average gross pay per
@@ -79,8 +104,28 @@ def calc_total_payroll(employees):
 # -------------------------------------------------------
 def calc_avg_pay_by_department(employees):
     # TODO: Implement this function
-    pass
+    if not employees:
+        return {}
+    
+    total = {}
+    count = {}
 
+    for employee in employees:
+        dept = employee["department"]
+        pay = calc_gross_pay(employee)
+
+        if dept not in total:
+            total[dept] = 0
+            count[dept] = 0
+
+        total[dept] += pay
+        count[dept] += 1
+
+    avg_by_dept = {}
+    for dept in total:
+        avg_by_dept[dept] = total[dept] / count[dept]
+
+    return avg_by_dept
 
 # -------------------------------------------------------
 # Display statistics (calls REQ-03 and REQ-04)
