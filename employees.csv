@@ -1,0 +1,9 @@
+id,name,department,hours_worked,hourly_rate,is_senior
+E001,Alice Tan,Engineering,45,25.00,True
+E002,Bob Lim,Marketing,38,18.50,False
+E003,Carol Ng,Engineering,50,30.00,True
+E004,David Koh,HR,40,20.00,False
+E005,Emma Wee,Marketing,42,22.00,True
+E006,Faris Ahmad,Engineering,35,28.00,False
+E007,Grace Ong,HR,48,19.00,False
+E008,Henry Sim,Marketing,40,21.50,True

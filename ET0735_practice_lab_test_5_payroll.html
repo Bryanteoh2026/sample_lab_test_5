@@ -1,0 +1,151 @@
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .page { max-width: 680px; padding: 2rem 1.5rem; font-family: var(--font-sans); color: var(--color-text-primary); }
+  .header { border-bottom: 1.5px solid var(--color-border-primary); padding-bottom: 1rem; margin-bottom: 1.5rem; }
+  .header-top { display: flex; justify-content: space-between; font-size: 12px; color: var(--color-text-secondary); margin-bottom: 0.5rem; }
+  .header-title { font-size: 15px; font-weight: 500; text-align: center; margin-bottom: 0.25rem; }
+  .header-sub { font-size: 13px; text-align: center; color: var(--color-text-secondary); }
+  .badge { display: inline-block; background: var(--color-background-danger); color: var(--color-text-danger); font-size: 11px; padding: 2px 10px; border-radius: var(--border-radius-md); font-weight: 500; margin-top: 0.5rem; }
+  h2 { font-size: 14px; font-weight: 500; margin: 1.5rem 0 0.75rem; border-left: 3px solid var(--color-border-info); padding-left: 8px; }
+  p, li { font-size: 13px; line-height: 1.7; }
+  ul, ol { padding-left: 1.25rem; }
+  li { margin-bottom: 0.3rem; }
+  code { font-family: var(--font-mono); font-size: 12px; background: var(--color-background-secondary); padding: 1px 5px; border-radius: 4px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12.5px; margin: 0.75rem 0; }
+  th { background: var(--color-background-secondary); font-weight: 500; padding: 8px 10px; text-align: left; border: 0.5px solid var(--color-border-secondary); }
+  td { padding: 8px 10px; border: 0.5px solid var(--color-border-tertiary); vertical-align: top; line-height: 1.6; }
+  .console { background: #1e1e1e; color: #d4d4d4; font-family: var(--font-mono); font-size: 12px; padding: 12px 14px; border-radius: var(--border-radius-md); margin: 0.5rem 0; line-height: 1.8; }
+  .g { color: #4ec9b0; } .y { color: #dcdcaa; }
+  hr { border: none; border-top: 0.5px solid var(--color-border-tertiary); margin: 1.5rem 0; }
+  .note { font-size: 12px; color: var(--color-text-secondary); font-style: italic; margin: 0.4rem 0 0; }
+  .hint { font-size: 11.5px; color: var(--color-text-secondary); background: var(--color-background-secondary); border-radius: var(--border-radius-md); padding: 6px 10px; margin-top: 6px; }
+  .rulebox { border: 0.5px solid var(--color-border-secondary); border-radius: var(--border-radius-md); padding: 10px 14px; margin: 0.75rem 0; font-size: 12.5px; line-height: 1.8; }
+  .footer { margin-top: 2rem; padding-top: 0.75rem; border-top: 0.5px solid var(--color-border-tertiary); display: flex; justify-content: space-between; font-size: 11px; color: var(--color-text-tertiary); }
+</style>
+<div class="page">
+  <div class="header">
+    <div class="header-top"><span>Official (Closed), Non-Sensitive</span><span>ET0735 DevOps for AIoT — Practice Lab Test 5</span></div>
+    <div class="header-title">ET0735 DevOps for AIoT — Practice Lab Test 5</div>
+    <div class="header-sub">Singapore Polytechnic · School of Electrical &amp; Electronic Engineering</div>
+    <div style="text-align:center"><span class="badge">Practice — Hardest</span></div>
+  </div>
+
+  <h2>Part A: Git and GitHub</h2>
+  <ol>
+    <li>Click on the GitHub Classroom Assignment Link provided by your instructor.</li>
+    <li>Clone the <code>PracticeLabTest5</code> repository to <code>C:\ET0735</code>.<br><span class="note">Note: Do not create your own repository.</span></li>
+    <li>Open the folder in VSCode and select the appropriate Python interpreter.</li>
+    <li>Create a GitHub README with text <strong>"DevOps for AIoT Practice Lab 5"</strong>, then commit and push with message <code>"Add readme for practice labtest5"</code>.</li>
+    <li>Test the application by running <code>labsample5.py</code> and selecting option 1.</li>
+  </ol>
+
+  <hr>
+
+  <h2>Part B: Python Programming</h2>
+  <ol>
+    <li>Your company has been awarded a contract to develop an <strong>"Employee Payroll System"</strong> to calculate staff salaries with overtime and seniority rules.</li>
+    <li>Files provided:
+      <ul style="margin-top:0.4rem">
+        <li><code>labsample5.py</code> — Main Python script</li>
+        <li><code>test_labsample5.py</code> — PyTest cases</li>
+        <li><code>employees.csv</code> — Employee records (list of dictionaries)</li>
+      </ul>
+    </li>
+    <li>A helper function is already fully implemented — study it carefully as your functions must use it:
+      <ul style="margin-top:0.4rem">
+        <li><code>calc_gross_pay(employee)</code> — computes gross pay based on the rules below</li>
+      </ul>
+      <div class="rulebox">
+        <strong>Gross pay rules:</strong><br>
+        1. First 40 hours: <code>hours_worked × hourly_rate</code><br>
+        2. Overtime (hours &gt; 40): <code>overtime_hours × hourly_rate × 1.5</code><br>
+        3. Senior bonus: if <code>is_senior == True</code>, multiply total by <code>1.10</code>
+      </div>
+    </li>
+    <li>Implement <strong>REQ-01 to REQ-04</strong> as defined in Table 1 below.</li>
+  </ol>
+
+  <table>
+    <thead><tr><th style="width:90px">Requirement ID</th><th>Description</th><th style="width:230px">Python Function</th></tr></thead>
+    <tbody>
+      <tr>
+        <td>REQ-01</td>
+        <td>When the user selects Option 4 "Display employees by department", return a list of employee dictionaries whose <code>department</code> matches the given parameter. Match must be <strong>case-insensitive</strong>. Return <code>[]</code> if none found or list is empty.</td>
+        <td><code>get_employees_by_department(employees, department)</code></td>
+      </tr>
+      <tr>
+        <td>REQ-02</td>
+        <td>When the user selects Option 3 "Display highest paid employee", return the employee dictionary with the highest computed gross pay. Return <code>None</code> if the list is empty.
+          <div class="hint">Hint: call <code>calc_gross_pay()</code> to compare employees.</div>
+        </td>
+        <td><code>get_highest_paid_employee(employees)</code></td>
+      </tr>
+      <tr>
+        <td>REQ-03</td>
+        <td>When the user selects Option 2 "Display statistics", compute the <strong>total payroll cost</strong> — the sum of gross pay across all employees. Return <code>0</code> if the list is empty.</td>
+        <td><code>calc_total_payroll(employees)</code></td>
+      </tr>
+      <tr>
+        <td>REQ-04</td>
+        <td>When the user selects Option 2, also compute the <strong>average gross pay per department</strong> and return it as a dictionary, e.g. <code>{"Engineering": 1234.56, "Marketing": 890.00}</code>. Only include departments that have at least one employee. Return <code>{}</code> if list is empty.
+          <div class="hint">Hint: group employees by department first, then compute the average gross pay for each group.</div>
+        </td>
+        <td><code>calc_avg_pay_by_department(employees)</code></td>
+      </tr>
+    </tbody>
+  </table>
+  <p style="text-align:center; font-weight:500; font-size:13px; margin: 0.5rem 0 1rem">Table 1</p>
+
+  <p>Sample console output when selecting Option 2:</p>
+  <div class="console">
+    Enter selection =&gt; <span class="y">2</span><br><br>
+    Total payroll cost : $8290.75<br><br>
+    Average gross pay by department:<br>
+    &nbsp;&nbsp;Engineering &nbsp;&nbsp;&nbsp;: $1234.42<br>
+    &nbsp;&nbsp;Marketing &nbsp;&nbsp;&nbsp;&nbsp;: $890.17<br>
+    &nbsp;&nbsp;HR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: $944.00
+  </div>
+
+  <ol start="5">
+    <li>Commit all changes with message <code>"Implement REQ-01 to REQ-04"</code> and push to GitHub.</li>
+  </ol>
+
+  <hr>
+
+  <h2>Part C: Software Unit Tests</h2>
+  <ol>
+    <li>Configure Git to ignore Pytest-generated files/directories.</li>
+    <li>Complete all PyTest stubs in <code>test_labsample5.py</code> and ensure all tests pass.</li>
+  </ol>
+
+  <table>
+    <thead><tr><th>PyTest Function</th><th>Remarks</th></tr></thead>
+    <tbody>
+      <tr><td><code>test_calc_gross_pay_no_overtime_no_senior()</code></td><td>No OT, not senior — straightforward pay</td></tr>
+      <tr><td><code>test_calc_gross_pay_with_overtime_no_senior()</code></td><td>OT hours included, not senior</td></tr>
+      <tr><td><code>test_calc_gross_pay_no_overtime_senior()</code></td><td>No OT but +10% senior bonus</td></tr>
+      <tr><td><code>test_calc_gross_pay_overtime_and_senior()</code></td><td>OT hours + senior bonus combined</td></tr>
+      <tr><td><code>test_calc_gross_pay_exactly_40hrs()</code></td><td>Boundary — exactly 40hrs, no OT triggered</td></tr>
+      <tr><td><code>test_get_employees_by_department_engineering()</code></td><td>3 Engineering employees returned</td></tr>
+      <tr><td><code>test_get_employees_by_department_case_insensitive()</code></td><td>Lowercase input matches correctly</td></tr>
+      <tr><td><code>test_get_employees_by_department_not_found()</code></td><td>Unknown department → []</td></tr>
+      <tr><td><code>test_get_employees_by_department_empty_list()</code></td><td>Empty list → []</td></tr>
+      <tr><td><code>test_get_highest_paid_employee()</code></td><td>Carol Ng has highest gross pay</td></tr>
+      <tr><td><code>test_get_highest_paid_employee_empty()</code></td><td>Empty list → None</td></tr>
+      <tr><td><code>test_get_highest_paid_employee_single()</code></td><td>Single employee → that employee returned</td></tr>
+      <tr><td><code>test_calc_total_payroll()</code></td><td>Sum of all gross pays verified</td></tr>
+      <tr><td><code>test_calc_total_payroll_empty()</code></td><td>Empty list → 0</td></tr>
+      <tr><td><code>test_calc_avg_pay_by_department_keys()</code></td><td>Dict has Engineering, Marketing, HR keys</td></tr>
+      <tr><td><code>test_calc_avg_pay_by_department_engineering()</code></td><td>Verify Engineering average is correct</td></tr>
+      <tr><td><code>test_calc_avg_pay_by_department_empty()</code></td><td>Empty list → {}</td></tr>
+    </tbody>
+  </table>
+  <p style="text-align:center; font-weight:500; font-size:13px; margin: 0.5rem 0 1rem">Table 3</p>
+
+  <ol start="3">
+    <li>Commit with message <code>"Implement PyTest test cases"</code> and push to GitHub.</li>
+  </ol>
+
+  <div class="footer"><span>Practice Lab Test 5 (Hardest)</span><span>Page 1 of 1</span></div>
+</div>
